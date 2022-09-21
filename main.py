@@ -1,25 +1,32 @@
-import time
+# imports
+from timer import timer # allows us to call timer() from timer.py
 
-def timer():
-    #while True:
-        uin = input("Please input the time in seconds: ")
-        try:
-            when_to_stop = abs(int(uin))        #here****
-        except KeyboardInterrupt:  #ctrl C
-            return
-        except:
-            print("Not a number!")
+# classes
 
-        for i in range(when_to_stop):   #while when_to_stop > 0:
-            m, s = divmod(when_to_stop, 60)     #****convert numbers to x amount of seconds or statement
-            h, m = divmod(m, 60)
-            time_left = str(h).zfill(2) + ":" + str(m).zfill(2) + ":" + str(s).zfill(2)
-            print('\r' + time_left, end="")
-            time.sleep(1)
-        print('\n' + "the timer is complete")
+# methods
+def parseRequest(user_input): # takes user_input and turns it into the valid app
+    try:
+        user_input = user_input.split()
+    except:
+        print("invalid input")
+        return "error"
 
-
-while True:
-    user_input = input("What is your request?: ").split(" ")
     if "timer" in user_input:
+        return "timer"
+    if "countdown" in user_input:
+        return "timer"
+
+# main loop
+def main():
+    user_input = input("What is your request?: ")
+    user_input = parseRequest(user_input) # turn user input into the requested app
+    
+    if user_input == "timer": # start timer method if timer requested
         timer()
+    elif user_input == "quit": # end program if user asks to quit
+        quit
+    else: # try again if error
+        main()
+
+if __name__ == "__main__":
+    main()
