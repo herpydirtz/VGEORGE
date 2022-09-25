@@ -1,7 +1,14 @@
-# VGEORGE
-vgeorge - virtually generated engineered organic realistic george eassistance 
 
-## Planned Project Updates - 9/21/2022
-- [ ] User can create a "shopping list" - virtual and physical use, assistant will ask if the list is virtual or physical, then create a list. The virtual list pulls information from sites like google or amazon to create a virtual shopping cart where you can check out, and the physical cart will allow you to add items to a list. This list can be sent to a delivery method of choice, ie email, SMS, etc. 
-- [ ] Music player - youtube, spotify, soundcloud, apple music - user would request song title and they can add artist as well
-- [ ] 
+# VGEORGE
+
+VGEORGE stands for Virtually Generated Engineered Organic Realistic George E-assistance.
+
+## Planned Features
+
+-  [x] 9/20/2022 - Timer - Can generate a timer off of a complex input, e.g. "3 hours and 2 seconds".
+
+- [ ] 9/21/2022 - Shopping List - Generates two shopping lists for online and in-store shopping. Online list will pull information from sites such as Google and Amazon to create an integrated online shopping cart to check out. In-store list will be a simple list of items that can be sent to a delivery method of choice, i.e. email, SMS, etc.
+
+- [ ] 9/21/2022 - Music player - User can request a song, along with the artist's name. Song may be pulled from YouTube, Spotify, SoundCloud, Apple Music, etc.
+
+- [ ] 9/24/2022 - Random Number Generator - Generates a random number from a range off a complex input, e.g. "from 1 to 100"
