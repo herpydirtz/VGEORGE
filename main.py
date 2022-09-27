@@ -14,8 +14,8 @@ def parse_request(user_input):  # takes user_input and turns it into the valid a
         return "timer"
     if "countdown" in user_input:
         return "timer"
-    if "random" in user_input:
-        return "rng"
+    if "random" and "number"in user_input:
+        return "rng"    #word rng, in main function when calling it will call rng
 
 
 def main():
@@ -25,11 +25,10 @@ def main():
 
     if user_input == "timer":  # start timer method if timer requested
         timer()
-    elif user_input == "random": # user would likely say "give me a random number from _ to _ "
+    elif user_input == "rng": # user would likely say "give me a random number from _ to _ "
         rng()
     elif user_input == "quit": # end program if user asks to quit
         quit
-    else: # try again if error
     elif user_input == "quit":  # end program if user asks to quit
         exit()
     else:  # try again if error
