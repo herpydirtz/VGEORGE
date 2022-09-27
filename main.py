@@ -1,38 +1,26 @@
-# imports
-from timer import timer # allows us to call timer() from timer.py
-from rng import rng
+import rng
+import timer
 
 
 def parse_request(user_input):  # takes user_input and turns it into the valid app
-    try:
-        user_input = user_input.split()
-    except TypeError:
-        print("invalid input")
-        return "error"
+    user_input = user_input.split()
 
-    if "timer" in user_input:
-        return "timer"
-    if "countdown" in user_input:
-        return "timer"
-    if "random" and "number"in user_input:
-        return "rng"    #word rng, in main function when calling it will call rng
+    if "timer" in user_input or "countdown" in user_input:
+        timer.timer(user_input)
+    elif "random" in user_input and "number" in user_input:
+        rng.rng(user_input)
+    elif "flip" in user_input and ("coin" in user_input or "coins" in user_input):
+        rng.coin(user_input)
+    elif "roll" in user_input:
+        rng.dice(user_input)
+    elif "quit" in user_input:
+        exit()
+    else:
+        main()
 
 
 def main():
-    user_input = input("What is your request?: ")
-    # turn user input into the requested app
-    user_input = parse_request(user_input)
-
-    if user_input == "timer":  # start timer method if timer requested
-        timer()
-    elif user_input == "rng": # user would likely say "give me a random number from _ to _ "
-        rng()
-    elif user_input == "quit": # end program if user asks to quit
-        quit
-    elif user_input == "quit":  # end program if user asks to quit
-        exit()
-    else:  # try again if error
-        main()
+    parse_request(input("What is your request?: "))
 
 
 if __name__ == "__main__":
