@@ -30,9 +30,7 @@ def timer(user_input):
         for i in range(seconds, 0, -1):  # i in range() is counting the items in a list that starts from seconds and ends at 0 decreasing in intervals of 1. This could be changed for example -2 would decrease 2x the rate
             m, s = divmod(i, 60)
             h, m = divmod(m, 60)
-            time_left = str(h).zfill(2) + ":" + \
-                str(m).zfill(2) + ":" + str(s).zfill(2)
-            print(time_left, end='\r')
+            print(f"{h:02d}:{m:02d}:{s:02d}", end='\r')
             time.sleep(1)
         print("00:00:00", end="\r")
         print('\n' + "The timer is complete.")
