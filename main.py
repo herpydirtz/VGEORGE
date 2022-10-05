@@ -1,6 +1,4 @@
-import filer
-import rng
-import timer
+from apps import filer, rng, timer
 
 
 def parse_request(user_input):  # takes user_input and turns it into the valid app
