@@ -11,15 +11,14 @@ def parse_request():  # takes user_input and turns it into the valid app
         r.pause_threshold = 0.7
         audio = r.listen(source)
         try:
-            print("Recognizing")
+            print("Compiling")
             user_input = r.recognize_google(audio, language='en-in')
-            print("the command is printed=", user_input)
+            print("You said ", user_input)
         except Exception as e:
             print(e)
             print("Say that again sir")
             return "None"
         return user_input
-
 
 def speak(audio):
     engine = pyttsx3.init()
@@ -28,7 +27,10 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
-def main():    
+speak("hello sir, I am your desktop assistant. Tell me, how may I assist you?") 
+
+def main():   
+
     while (True):
         user_input = parse_request().lower().split()
         if "timer" in user_input or "countdown" in user_input: # TODO: give the ability to use short phrase like "mins" and allow for the time to be inserted before the word timer ie "create a 5 minute timer"
@@ -39,14 +41,14 @@ def main():
             rng.coin(user_input)
         elif "roll" in user_input:
             rng.dice(user_input)
-
         elif "open" in user_input and "filer" in user_input:
             filer.filer(user_input)
-
+        elif "what is your name" in user_input:
+            speak("I am Vgeorge, your desktop assistant")
         elif "quit" in user_input:
             exit()
         else:
-            main()
+            main() 
 
 if __name__ == "__main__":
     main()
