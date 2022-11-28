@@ -19,5 +19,3 @@ The VGEORGE is a program that allows the user to enter a voice prompted command 
 - [x] 09/24/2022 - Random Number Generator - Generates a random number from a range off a complex input, e.g. "from 1 to 100"
 
 - [ ] 09/26/2022 - File Browser - \*need to add description\*
-
-- [ ] 11/24/2022 - Implement a neural network to learn the commands and expand vocabulary to understand and run functions
