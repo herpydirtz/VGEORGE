@@ -1,7 +1,8 @@
 from apps import filer, rng, timer, measurements
-import speech_recognition as sr
 import pyttsx3
+import speech_recognition as sr
 import webbrowser as wb
+#need to install pyaudio, webbrowser, pyttsx3, speechrecognition
 
 def parse_request():  # takes user_input and turns it into the valid app
     r = sr.Recognizer()
@@ -21,12 +22,16 @@ def parse_request():  # takes user_input and turns it into the valid app
             return "None"
         return user_input
 
+
 def speak(audio):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[1].id)  # [0] for male, [1] for female voice
+    # [0] for male, [1] for female voice
+    engine.setProperty('voice', voices[1].id)
     engine.say(audio)
     engine.runAndWait()
+
+#fdfasdf
 
 speak("Hello this is your virtual assistant, how may I be of service?")
 
@@ -46,11 +51,63 @@ def main():
         elif "open" in user_input and "google" in user_input:
             wb.open("www.google.com")
         elif "measurement" in user_input or "measurements" in user_input:
-            measurements.measurements(user_input)
-        elif "quit" in user_input:
+            speak("please enter the numerical quantity you would like to convert")
+            amount = input("please enter the numerical quantity you would like to convert: ")
+            speak("type the conversion number you would like: ")
+            selection = input("type the conversion number you would like: ")
+            measurements.measurements(amount, selection)
+        #elif "area" in user_input and "circle" in user_input:
+        #    measurements.measurements(user_input)
+        elif "quit" in user_input: 
             exit()
         else:
             main()
 
 if __name__ == "__main__":
     main()
+'''
+
+commands = {
+    (("timer", "countdown")): (timer.timer,),
+    (("random", "pick"), ("number", "numbers")): (rng.rng,),
+    (("flip"), ("coin", "coins")): (rng.coin,),
+    (("roll")): (rng.dice,),
+    (("open"), ("filer")): (filer.filer,),
+    (("open"), ("google")): (wb.open, "www.google.com"),
+    #(("measurement", "measurements")): (measurements.measurementsxd ,)
+}
+
+
+def list_intersection(a, b):
+    a_set = set(a)
+    b_set = set(b)
+    return a_set.intersection(b_set)
+
+
+def main():
+    speak("Hello this is your virtual assistant, how may I be of service?")
+    while (True):
+        user_input = parse_request().lower().split()
+
+        if "quit" in user_input:
+            exit()
+
+        for keywords, actions in commands.items():
+            input_matches = True
+
+            for or_list in keywords:
+                if len(list_intersection(or_list, user_input)) == 0:
+                    input_matches = False
+
+            if input_matches:
+                if len(actions) > 1:
+                    # this is for special input, see google
+                    actions[0](actions[1])
+                else:
+                    actions[0](user_input)
+                break
+
+
+if __name__ == "__main__":
+    main()
+'''
