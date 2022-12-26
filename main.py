@@ -31,7 +31,6 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
-#fdfasdf
 
 speak("Hello this is your virtual assistant, how may I be of service?")
 
@@ -52,13 +51,15 @@ def main():
             wb.open("www.google.com")
         elif "measurement" in user_input or "measurements" in user_input:
             speak("please enter the numerical quantity you would like to convert")
-            amount = input("please enter the numerical quantity you would like to convert: ")
+            #amount = input("please enter the numerical quantity you would like to convert: ")
+            amount = r.recognize_google(audio, language='en-in')
             speak("type the conversion number you would like: ")
-            selection = input("type the conversion number you would like: ")
+            selection = r.recognize_google(audio, language='en-in')
+            #selection = input("type the conversion number you would like: ")
             measurements.measurements(amount, selection)
         #elif "area" in user_input and "circle" in user_input:
         #    measurements.measurements(user_input)
-        elif "quit" in user_input: 
+        elif "quit" in user_input or "leave" in user_input or "exit" in user_input: 
             exit()
         else:
             main()
