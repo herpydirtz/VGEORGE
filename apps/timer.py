@@ -1,4 +1,13 @@
 import time
+import pyttsx3
+
+def speak(audio):
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    # [0] for male, [1] for female voice
+    engine.setProperty('voice', voices[1].id)
+    engine.say(audio)
+    engine.runAndWait()
 
 
 def timer(user_input):
@@ -16,14 +25,14 @@ def timer(user_input):
                 seconds += grandfather[type] * \
                     int(user_input[user_input.index(type) - 1])
             except ValueError:
-                print("invalid input")
+                speak("invalid input")
                 timer(user_input)
         elif type + "s" in user_input:
             try:
                 seconds += grandfather[type] * \
                     int(user_input[user_input.index(type + "s") - 1])
             except ValueError:
-                print("invalid input")
+                speak("invalid input")
                 timer(user_input)
 
     if seconds > 0:
@@ -33,6 +42,6 @@ def timer(user_input):
             print(f"{h:02d}:{m:02d}:{s:02d}", end='\r')
             time.sleep(1)
         print("00:00:00", end="\r")
-        print('\n' + "The timer is complete.")
+        speak('\n' + "The timer is complete.")
     else:
         print("inval2")
