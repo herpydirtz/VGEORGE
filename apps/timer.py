@@ -1,6 +1,7 @@
 import time
 import pyttsx3
 
+
 def speak(audio):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')

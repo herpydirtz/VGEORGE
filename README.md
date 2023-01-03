@@ -7,7 +7,6 @@ VGEORGE stands for Virtually Generated Engineered Organic Realistic George E-ass
 
 The VGEORGE is a program that allows the user to enter a voice prompted command which can carry out a digital task. The VGEORGE will have the ability to create, read, and write files as well as set reminders and do things a typical voice assistant would do. The VGEORGE will also pull data using web scraping and APIs to deliver accurate and precise information
 
-
 ## Planned Features
 
 - [x] 09/20/2022 - Timer - Can generate a timer off of a complex input, e.g. "3 hours and 2 seconds".
